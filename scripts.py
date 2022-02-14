@@ -64,16 +64,3 @@ def create_commendation(schoolkid, subject_title):
                                     schoolkid=schoolkid,
                                     subject=lesson.subject,
                                     teacher=lesson.teacher)
-
-
-class Command(BaseCommand):
-    """Start the bot."""
-
-    help = 'Hack DB'
-
-    def handle(self, *args, **options):
-        schoolkid = find_schoolkid('Фролов Иван')
-        if schoolkid:
-            create_commendation(schoolkid, 'Математика')
-        # print(find_schoolkid('Фролов Иван'))
-        #
