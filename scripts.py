@@ -1,8 +1,6 @@
 from random import choice
 
 from datacenter.models import *
-from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
-from django.core.management.base import BaseCommand
 
 
 def find_schoolkid(full_name: str):
@@ -16,9 +14,9 @@ def find_schoolkid(full_name: str):
     """
     try:
         return Schoolkid.objects.get(full_name__contains=full_name)
-    except ObjectDoesNotExist:
+    except Schoolkid.DoesNotExist:
         print('Ученик не найден.')
-    except MultipleObjectsReturned:
+    except Schoolkid.MultipleObjectsReturned:
         print('Найдено слишком много учеников.')
 
 
